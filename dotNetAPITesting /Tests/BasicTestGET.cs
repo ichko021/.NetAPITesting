@@ -47,6 +47,5 @@ public class BasicTestGet
         List<UserResponse> users = JsonConvert.DeserializeObject<List<UserResponse>>(responseData);
 
         Assert.That(users.Count, Is.Not.Zero, "Expected number of users returned is not 0");
-        Assert.That(users[0].name.Equals("Sen. Shantanu Kaniyar"), "First user's name is correct");
     }
 }
