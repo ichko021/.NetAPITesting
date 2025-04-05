@@ -23,17 +23,19 @@ public class BasicTestGet
     }
 
     [Test]
+    [Parallelizable]
+    [Category("GET")]
     public async Task TestGet()
     {
         HttpResponseMessage response = await _httpClient.GetAsync(url);
-
-        Console.Out.WriteLine(response);
         
         Assert.That(response.StatusCode.Equals(HttpStatusCode.OK),"Expected status code is 200 OK");
         Assert.That(response.Content, Is.Not.Null, "Response content is not null");
     }
     
     [Test]
+    [Parallelizable]
+    [Category("GET")]
     public async Task TestGetWithResponse()
     {
         HttpResponseMessage response = await _httpClient.GetAsync(url);
