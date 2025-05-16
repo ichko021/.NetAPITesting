@@ -33,7 +33,7 @@ public class GetUsersTests : TestBase
     [Parallelizable]
     public async Task Get_User_By_Id_Returns_OK()
     {
-        var response = await Client.GetAsync("users/7890027");
+        var response = await Client.GetAsync("users/7893025");
 
         response.StatusCode.ToString().Should().Be("OK");
 
@@ -42,8 +42,8 @@ public class GetUsersTests : TestBase
 
         user.Should().NotBeNull();
         user.id.Should().Be(7890027);
-        user.name.Should().Be("Fiki Storaro");
-        user.email.Should().Be("testovi1@test.com");
+        user.name.Should().Be("2pac");
+        user.email.Should().Be("testovi@test.comm");
         user.gender.Should().Be("male");
         user.status.Should().Be("active");
     }
