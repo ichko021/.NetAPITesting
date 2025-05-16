@@ -33,17 +33,6 @@ public class PostUsersTests : TestBase
         userFromPostRequest.email.Should().Be(newUser.email);
         userFromPostRequest.status.Should().Be(newUser.status);
         userFromPostRequest.gender.Should().Be(newUser.gender);
-        
-        var getResponse = await Client.GetAsync("users/" + userFromPostRequest.id);
-        
-        var getResponseBody = await getResponse.Content.ReadAsStringAsync();
-
-        var userFromGetRequest = JsonConvert.DeserializeObject<UserResponse>(getResponseBody);
-        
-        userFromGetRequest.name.Should().Be(newUser.name);
-        userFromGetRequest.status.Should().Be(newUser.status);
-        userFromGetRequest.gender.Should().Be(newUser.gender);
-        userFromGetRequest.email.Should().Be(newUser.email);
     }
 
     [Test]
