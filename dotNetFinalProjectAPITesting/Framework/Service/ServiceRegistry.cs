@@ -1,3 +1,4 @@
+using dotNetFinalProjectAPITesting.Framework.DataGenerator;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,7 +11,8 @@ public static class ServiceRegistry
         var testConfig = configuration.GetSection("ApiConfig").Get<ApiConfig>();
         services.AddSingleton(testConfig);
         services.AddSingleton(provider => new HttpClientProvider(testConfig));
-        
+        services.AddSingleton(provider => new UserGenerator());
+
         return services;
     }
 }

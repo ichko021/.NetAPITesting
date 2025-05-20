@@ -1,3 +1,4 @@
+using dotNetFinalProjectAPITesting.Framework.DataGenerator;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -7,6 +8,7 @@ public class TestBase
 {
     protected HttpClient Client;
     private ServiceProvider _serviceProvider;
+    protected UserGenerator UserGenerator;
 
     [OneTimeSetUp]
     public void GlobalSetup()
@@ -20,6 +22,8 @@ public class TestBase
         
         var httpClientProvider = _serviceProvider.GetRequiredService<HttpClientProvider>();
         Client = httpClientProvider.Client;
+        
+        UserGenerator = _serviceProvider.GetRequiredService<UserGenerator>();
     }
 
     [OneTimeTearDown]

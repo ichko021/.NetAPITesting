@@ -12,7 +12,7 @@ public class HttpClientProvider
         {
             BaseAddress = new Uri(apiConfig.BaseUrl)
         };
-        
+
         Client.DefaultRequestHeaders.Accept.Clear();
         Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiConfig.AuthToken);
