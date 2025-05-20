@@ -10,8 +10,8 @@ public static class ServiceRegistry
     {
         var testConfig = configuration.GetSection("ApiConfig").Get<ApiConfig>();
         services.AddSingleton(testConfig);
-        services.AddSingleton(provider => new HttpClientProvider(testConfig));
-        services.AddSingleton(provider => new UserGenerator());
+        services.AddSingleton(new HttpClientProvider(testConfig));
+        services.AddSingleton(new UserGenerator());
 
         return services;
     }
